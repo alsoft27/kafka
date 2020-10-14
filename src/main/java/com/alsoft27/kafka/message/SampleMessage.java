@@ -4,35 +4,59 @@ public class SampleMessage {
 
 	private int id;
 
-	private String message;
+	private String name;
+
+	private String lastname;
+
+	private double cant;
 
 	public SampleMessage() {
 	}
 
-	public SampleMessage(int id, String message) {
+	public SampleMessage(int id, String name, String lastname, double cant) {
+		super();
 		this.id = id;
-		this.message = message;
+		this.name = name;
+		this.lastname = lastname;
+		this.cant = cant;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public String getName() {
+		return name;
 	}
 
-	public int getId() {
-		return this.id;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getMessage() {
-		return this.message;
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public double getCant() {
+		return cant;
+	}
+
+	public void setCant(double cant) {
+		this.cant = cant;
 	}
 
 	@Override
 	public String toString() {
-		return "SampleMessage{id=" + this.id + ", message='" + this.message + "'}";
+		return "SampleMessage{id=" + this.id + ", name='" + this.name + "', lastname='" + this.lastname + "', cant="
+				+ this.cant + "}";
 	}
 
 }

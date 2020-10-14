@@ -25,7 +25,7 @@ public class Producer {
 	}
 
 	public void send(SampleMessage message) {
-		this.kafkaTemplate.send(topic, message);
+		this.kafkaTemplate.send(topic, String.valueOf(message.getId()), message);
 		log.info("Sent sample message {} to ", message);
 	}
 }

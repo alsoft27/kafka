@@ -21,8 +21,8 @@ public class KafkaConfigConsumer {
 	@Value("${servers-kafka}")
 	private String servers;
 
-	@Value("${sasl-jaas-config}")
-	private String saslJaasConfig;
+	// @Value("${sasl-jaas-config}")
+	// private String saslJaasConfig;
 
 	@Value("${kafka-consumers}")
 	private String consumers;
@@ -31,9 +31,9 @@ public class KafkaConfigConsumer {
 		Map<String, Object> props = new HashMap<>();
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, consumers);
-		props.put("security.protocol", "SASL_SSL");
-		props.put("sasl.mechanism", "SCRAM-SHA-256");
-		props.put("sasl.jaas.config", saslJaasConfig);
+		// props.put("security.protocol", "SASL_SSL");
+		// props.put("sasl.mechanism", "SCRAM-SHA-256");
+		// props.put("sasl.jaas.config", saslJaasConfig);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
@@ -51,6 +51,7 @@ public class KafkaConfigConsumer {
 
 		ConcurrentKafkaListenerContainerFactory<String, SampleMessage> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(consumerFactory());
+		// factory.setConcurrency(3); threads
 		return factory;
 	}
 

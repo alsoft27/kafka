@@ -20,8 +20,8 @@ public class KafkaConfigProducer {
 	@Value("${servers-kafka}")
 	private String servers;
 
-	@Value("${sasl-jaas-config}")
-	private String saslJaasConfig;
+	// @Value("${sasl-jaas-config}")
+	// private String saslJaasConfig;
 
 	public Map<String, Object> properties() {
 		Map<String, Object> props = new HashMap<>();
@@ -32,9 +32,9 @@ public class KafkaConfigProducer {
 		// props.put(ProducerConfig.BUFFER_MEMORY_CONFIG, "6hvf2rfu-consumers");
 		props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 		props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-		props.put("security.protocol", "SASL_SSL");
-		props.put("sasl.mechanism", "SCRAM-SHA-256");
-		props.put("sasl.jaas.config", saslJaasConfig);
+		// props.put("security.protocol", "SASL_SSL");
+		// props.put("sasl.mechanism", "SCRAM-SHA-256");
+		// props.put("sasl.jaas.config", saslJaasConfig);
 
 		return props;
 	}
